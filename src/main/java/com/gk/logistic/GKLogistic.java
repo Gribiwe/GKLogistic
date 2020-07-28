@@ -1,5 +1,6 @@
 package com.gk.logistic;
 
+import com.gk.logistic.proxy.ClientProxy;
 import com.gk.logistic.proxy.ServerProxy;
 import com.gk.logistic.util.Reference;
 import net.minecraft.init.Blocks;
@@ -21,8 +22,8 @@ public class GKLogistic {
     @Mod.Instance
     public static GKLogistic instance;
 
-    @SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.SERVER, modId = Reference.MODID)
-    public static ServerProxy proxy;
+    public static ServerProxy serverProxy = new ServerProxy();
+    public static ClientProxy clientProxy = new ClientProxy();
 
     private static Logger logger;
 
