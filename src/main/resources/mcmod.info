@@ -1,8 +1,8 @@
 [
 {
-  "modid": "examplemod",
+  "modid": "gklmod",
   "name": "GKLogistic",
-  "description": "Example placeholder mod.",
+  "description": "Gribiwe and Kolya's mod.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
