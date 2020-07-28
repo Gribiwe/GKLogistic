@@ -1,4 +1,4 @@
-package com.gb.logistic.util;
+package com.gk.logistic.util;
 
 public interface Registrable {
 

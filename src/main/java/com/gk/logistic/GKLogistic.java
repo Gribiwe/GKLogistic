@@ -1,7 +1,7 @@
-package com.gb.logistic;
+package com.gk.logistic;
 
-import com.gb.logistic.proxy.ServerProxy;
-import com.gb.logistic.util.Reference;
+import com.gk.logistic.proxy.ServerProxy;
+import com.gk.logistic.util.Reference;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;

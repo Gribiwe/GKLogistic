@@ -1,7 +1,7 @@
-package com.gb.logistic.util.handler;
+package com.gk.logistic.util.handler;
 
-import com.gb.logistic.init.ModItems;
-import com.gb.logistic.util.Registrable;
+import com.gk.logistic.init.ModItems;
+import com.gk.logistic.util.Registrable;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;

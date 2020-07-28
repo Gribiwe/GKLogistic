@@ -1,4 +1,4 @@
-package com.gb.logistic.proxy;
+package com.gk.logistic.proxy;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;

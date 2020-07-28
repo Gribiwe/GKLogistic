@@ -1,6 +1,6 @@
 [
 {
-  "modid": "gklmod",
+  "modid": "gklogistic",
   "name": "GKLogistic",
   "description": "Gribiwe and Kolya's mod.",
   "version": "${version}",
@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authorList": ["ExampleDude"],
   "credits": "Gribiwe and Martelly",
-  "logoFile": "",
+  "logoFile": "assets/gklogistic/logo.png",
   "screenshots": [],
   "dependencies": []
 }

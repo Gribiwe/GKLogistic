@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "gklmod:items/debugger"
+    "layer0": "gklogistic:items/gkdebugger"
   }
 }

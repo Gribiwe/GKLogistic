@@ -1,8 +1,8 @@
-package com.gb.logistic.items;
+package com.gk.logistic.items;
 
-import com.gb.logistic.GKLogistic;
-import com.gb.logistic.init.ModItems;
-import com.gb.logistic.util.Registrable;
+import com.gk.logistic.GKLogistic;
+import com.gk.logistic.init.ModItems;
+import com.gk.logistic.util.Registrable;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
