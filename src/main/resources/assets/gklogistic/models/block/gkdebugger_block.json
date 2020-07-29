@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "gklogistic:gkdebugger_block"
+    "all": "gklogistic:blocks/gkdebugger_block"
   }
 }

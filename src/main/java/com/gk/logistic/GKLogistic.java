@@ -29,11 +29,10 @@ public class GKLogistic {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        logger = event.getModLog();
+
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
 }
