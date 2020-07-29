@@ -6,6 +6,8 @@ import com.gk.logistic.util.Registrable;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.thread.SidedThreadGroups;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemBase extends Item implements Registrable {
 
@@ -17,9 +19,10 @@ public class ItemBase extends Item implements Registrable {
         ModItems.ITEMS.add(this);
     }
 
+
     @Override
     public void registerModels() {
-        GKLogistic.clientProxy.registerItemRenderer(this, 0, "inventory");
+        GKLogistic.commonProxy.registerItemRenderer(this, 0, "inventory");
     }
 
 }

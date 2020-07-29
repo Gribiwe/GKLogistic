@@ -9,6 +9,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBase extends Block implements Registrable {
 
@@ -18,13 +20,15 @@ public class BlockBase extends Block implements Registrable {
         setRegistryName(name);
         setCreativeTab(creativeTabs);
 
+
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(name));
     }
 
+
     @Override
     public void registerModels() {
-        GKLogistic.clientProxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+        GKLogistic.commonProxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 
 

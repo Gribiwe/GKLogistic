@@ -2,6 +2,6 @@ package com.gk.logistic.proxy;
 
 import net.minecraft.item.Item;
 
-public class ServerProxy {
+public class CommonProxy {
     public void registerItemRenderer(Item item, int meta, String id) {}
 }
