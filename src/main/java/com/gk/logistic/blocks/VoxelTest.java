@@ -13,6 +13,7 @@ import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -33,7 +34,7 @@ public class VoxelTest extends BlockBase {
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
     {
-        this.setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+        this.setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.EAST));
     }
 
     public VoxelTest() {
@@ -45,7 +46,7 @@ public class VoxelTest extends BlockBase {
         EnumFacing facing = EnumFacing.getFront(meta);
 
         if (facing.getAxis() == EnumFacing.Axis.Y) {
-            facing = EnumFacing.NORTH;
+            facing = EnumFacing.EAST;
         }
 
         return getDefaultState().withProperty(FACING, facing);
@@ -61,32 +62,16 @@ public class VoxelTest extends BlockBase {
         return new BlockStateContainer(this, new IProperty[] {FACING});
     }
 
-    @Override
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-        return super.canPlaceBlockAt(worldIn, pos) ? this.canBlockStay(worldIn, pos) : false;
-    }
 
     @Override
-    public void onBlockClicked(World worldIn, BlockPos pos, EntityPlayer playerIn) {
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         playerIn.getFoodStats().setFoodLevel(5);
-        super.onBlockClicked(worldIn, pos, playerIn);
-    }
-
-    @Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        if (!this.canBlockStay(worldIn, pos)) {
-            worldIn.setBlockToAir(pos);
-            InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.VOXEL_TEST));
-        }
+        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
     }
 
     @Override
     public BlockRenderLayer getBlockLayer() {
         return BlockRenderLayer.CUTOUT;
-    }
-
-    private boolean canBlockStay(World worldIn, BlockPos pos) {
-        return worldIn.getBlockState(pos.down()).isSideSolid(worldIn, pos, EnumFacing.UP);
     }
 
     @Override

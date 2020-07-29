@@ -13,7 +13,6 @@ public class ItemFoodBase extends ItemFood implements Registrable {
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(CreativeTabs.FOOD);
-
         ModItems.ITEMS.add(this);
     }
 
