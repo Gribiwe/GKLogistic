@@ -1,5 +1,6 @@
 package com.gk.logistic.blocks;
 
+import com.gk.logistic.GKLogistic;
 import com.gk.logistic.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -37,7 +38,7 @@ public class VoxelTest extends BlockBase {
     }
 
     public VoxelTest() {
-        super("voxel_test", Material.PISTON, CreativeTabs.MATERIALS);
+        super("voxel_test", Material.PISTON, GKLogistic.GKLOGISTIC_TAB);
     }
 
     @Override

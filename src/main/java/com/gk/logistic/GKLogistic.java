@@ -22,7 +22,7 @@ public class GKLogistic {
     @Mod.Instance
     public static GKLogistic instance;
 
-    public static final CreativeTabs GKLogTab = new GKLogisticTab(Reference.NAME);
+    public static final CreativeTabs GKLOGISTIC_TAB = new GKLogisticTab(Reference.NAME);
 
     @SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.SERVER)
     public static CommonProxy commonProxy;
