@@ -12,7 +12,7 @@ public class ItemFoodBase extends ItemFood implements Registrable {
         super(amount, saturation, true);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(CreativeTabs.FOOD);
+        setCreativeTab( GKLogistic.GKLOGISTIC_TAB);
 
         ModItems.ITEMS.add(this);
     }
