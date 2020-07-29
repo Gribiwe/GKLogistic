@@ -1,7 +1,6 @@
 package com.gk.logistic.tabs;
 
 import com.gk.logistic.init.ModItems;
-import com.gk.logistic.util.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 

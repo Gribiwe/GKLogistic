@@ -2,7 +2,7 @@ package com.gk.logistic;
 
 import com.gk.logistic.proxy.CommonProxy;
 import com.gk.logistic.tabs.GKLogisticTab;
-import com.gk.logistic.util.Reference;
+import com.gk.logistic.util.Constants;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -16,22 +16,21 @@ import org.apache.logging.log4j.Logger;
  *
  * @author Gribiwe
  */
-@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
+@Mod(modid = Constants.MODID, name = Constants.NAME, version = Constants.VERSION)
 public class GKLogistic {
 
     @Mod.Instance
     public static GKLogistic instance;
 
-    public static final CreativeTabs GKLOGISTIC_TAB = new GKLogisticTab(Reference.NAME);
+    public static final CreativeTabs GKLOGISTIC_TAB = new GKLogisticTab(Constants.NAME);
 
-    @SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.SERVER)
+    @SidedProxy(clientSide = Constants.CLIENT, serverSide = Constants.SERVER)
     public static CommonProxy commonProxy;
 
     private static Logger logger;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-
     }
 
     @EventHandler
