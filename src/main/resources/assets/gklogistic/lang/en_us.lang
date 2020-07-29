@@ -3,3 +3,4 @@ itemGroup.GKLogistic=GKLogistic
 item.gkdebugger.name=Debugger
 
 tile.gkdebugger_block.name=Block of Debugger
+tile.voxel_test.name=Super Vocxel
