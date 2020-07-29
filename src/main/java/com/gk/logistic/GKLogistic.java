@@ -1,7 +1,9 @@
 package com.gk.logistic;
 
 import com.gk.logistic.proxy.CommonProxy;
+import com.gk.logistic.tabs.GKLogisticTab;
 import com.gk.logistic.util.Reference;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -19,6 +21,8 @@ public class GKLogistic {
 
     @Mod.Instance
     public static GKLogistic instance;
+
+    public static final CreativeTabs GKLOGISTIC_TAB = new GKLogisticTab(Reference.NAME);
 
     @SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.SERVER)
     public static CommonProxy commonProxy;

@@ -19,6 +19,7 @@ public class BlockBase extends Block implements Registrable {
         setCreativeTab(creativeTabs);
 
 
+
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(name));
     }
