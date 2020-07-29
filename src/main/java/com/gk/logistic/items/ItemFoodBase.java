@@ -4,22 +4,21 @@ import com.gk.logistic.GKLogistic;
 import com.gk.logistic.init.ModItems;
 import com.gk.logistic.util.Registrable;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 
-public class ItemBase extends Item implements Registrable {
+public class ItemFoodBase extends ItemFood implements Registrable {
 
-    public ItemBase(String name, CreativeTabs creativeTabs) {
+    public ItemFoodBase(String name, int amount, int saturation) {
+        super(amount, saturation, true);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(creativeTabs);
+        setCreativeTab(CreativeTabs.FOOD);
 
         ModItems.ITEMS.add(this);
     }
-
 
     @Override
     public void registerModels() {
         GKLogistic.commonProxy.registerItemRenderer(this, 0, "inventory");
     }
-
 }
