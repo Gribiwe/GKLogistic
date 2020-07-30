@@ -71,43 +71,33 @@ public class Connector extends Block implements Registrable {
     public static final PropertyBool DOWN = PropertyBool.create("down");
 
     protected static final AxisAlignedBB[] BOUNDING_BOXES = new AxisAlignedBB[] {
-            new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D),
-            new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 1.0D),
-            new AxisAlignedBB(0.0D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D),
-            new AxisAlignedBB(0.0D, 0.0D, 0.375D, 0.625D, 1.0D, 1.0D),
+            new AxisAlignedBB(0.25D, 0.1D, 0.25D, 0.75D, 0.9D, 0.75D),
+            new AxisAlignedBB(0.25D, 0.1D, 0.25D, 0.75D, 0.9D, 1.0D),
+            new AxisAlignedBB(0.0D, 0.1D, 0.25D, 0.75D, 0.9D, 0.75D),
+            new AxisAlignedBB(0.0D, 0.1D, 0.25D, 0.75D, 0.9D, 1.0D),
 
-            new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 0.625D),
-            new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D),
-            new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.625D, 1.0D, 0.625D),
-            new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D),
+            new AxisAlignedBB(0.25D, 0.1D, 0.0D, 0.75D, 0.9D, 0.75D),
+            new AxisAlignedBB(0.25D, 0.1D, 0.0D, 0.75D, 0.9D, 1.0D),
+            new AxisAlignedBB(0.0D, 0.1D, 0.0D, 0.75D, 0.9D, 0.75D),
+            new AxisAlignedBB(0.0D, 0.1D, 0.0D, 0.75D, 0.9D, 1.0D),
 
-            new AxisAlignedBB(0.375D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D),
-            new AxisAlignedBB(0.375D, 0.0D, 0.375D, 1.0D, 1.0D, 1.0D),
-            new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D),
-            new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 1.0D),
+            new AxisAlignedBB(0.25D, 0.1D, 0.25D, 1.0D, 0.9D, 0.75D),
+            new AxisAlignedBB(0.25D, 0.1D, 0.25D, 1.0D, 0.9D, 1.0D),
+            new AxisAlignedBB(0.0D, 0.1D, 0.25D, 1.0D, 0.9D, 0.75D),
+            new AxisAlignedBB(0.0D, 0.1D, 0.25D, 1.0D, 0.9D, 1.0D),
 
-            new AxisAlignedBB(0.375D, 0.0D, 0.0D, 1.0D, 1.0D, 0.625D),
-            new AxisAlignedBB(0.375D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D),
-            new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 0.625D),
-            new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D),
+            new AxisAlignedBB(0.25D, 0.1D, 0.0D, 1.0D, 0.9D, 0.75D),
+            new AxisAlignedBB(0.25D, 0.1D, 0.0D, 1.0D, 0.9D, 1.0D),
+            new AxisAlignedBB(0.0D, 0.1D, 0.0D, 1.0D, 0.9D, 0.75D),
+            new AxisAlignedBB(0.0D, 0.1D, 0.0D, 1.0D, 0.9D, 1.0D)};
 
-            new AxisAlignedBB(0.375D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D),
-            new AxisAlignedBB(0.375D, 0.0D, 0.375D, 1.0D, 1.0D, 1.0D),
-            new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D),
-            new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 1.0D),
-
-            new AxisAlignedBB(0.375D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D),
-            new AxisAlignedBB(0.375D, 0.0D, 0.375D, 1.0D, 1.0D, 1.0D),
-            new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D),
-            new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 1.0D) };
-
-    public static final AxisAlignedBB PILLAR_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.5D, 0.625D);
-    public static final AxisAlignedBB SOUTH_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.625D, 0.625D, 1.5D, 1.0D);
-    public static final AxisAlignedBB WEST_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.375D, 0.375D, 1.5D, 0.625D);
-    public static final AxisAlignedBB NORTH_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.5D, 0.375D);
-    public static final AxisAlignedBB EAST_AABB = new AxisAlignedBB(0.625D, 0.0D, 0.375D, 1.0D, 1.5D, 0.625D);
-    public static final AxisAlignedBB UP_AABB = new AxisAlignedBB(0.0D, 0.0D, 0, 0, 0, 0);
-    public static final AxisAlignedBB DOWN_AABB = new AxisAlignedBB(0.0D, 0.0D, 0, 0, 0, 0);
+    public static final AxisAlignedBB PILLAR_AABB = new AxisAlignedBB(0.25D, 0.10D, 0.25D, 0.75D, 0.9D, 0.75D);
+    public static final AxisAlignedBB SOUTH_AABB = new AxisAlignedBB(0.25D, 0.10D, 0.75D, 0.75D, 0.9D, 1.0D);
+    public static final AxisAlignedBB WEST_AABB = new AxisAlignedBB(0.0D, 0.10D, 0.25D, 0.25D, 0.9D, 0.75D);
+    public static final AxisAlignedBB NORTH_AABB = new AxisAlignedBB(0.25D, 0.10D, 0.0D, 0.75D, 0.9D, 0.25D);
+    public static final AxisAlignedBB EAST_AABB = new AxisAlignedBB(0.75D, 0.10D, 0.25D, 1.0D, 0.9D, 0.75D);
+    public static final AxisAlignedBB UP_AABB = new AxisAlignedBB(0.0D, 0.10D, 0, 0, 0.9D, 0);
+    public static final AxisAlignedBB DOWN_AABB = new AxisAlignedBB(0.0D, 0.10D, 0, 0, 0.9D, 0);
 
     public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean isActualState)
     {
