@@ -1,7 +1,5 @@
 package com.gk.logistic.init;
 
-import com.gk.logistic.GKLogistic;
-import com.gk.logistic.items.ItemBase;
 import com.gk.logistic.items.ItemFoodBase;
 import net.minecraft.item.Item;
 

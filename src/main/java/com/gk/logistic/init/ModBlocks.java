@@ -1,7 +1,7 @@
 package com.gk.logistic.init;
 
 import com.gk.logistic.blocks.GKDebugger;
-import com.gk.logistic.blocks.VoxelTest;
+import com.gk.logistic.blocks.Tube;
 import net.minecraft.block.Block;
 
 import java.util.ArrayList;
@@ -11,6 +11,6 @@ public class ModBlocks {
     public static final List<Block> BLOCKS = new ArrayList<>();
 
     public static final Block GKDEBUGGER_BLOCK = new GKDebugger();
-    public static final Block VOXEL_TEST = new VoxelTest();
+    public static final Block TUBE = new Tube();
 
 }
