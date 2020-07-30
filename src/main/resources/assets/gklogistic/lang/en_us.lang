@@ -4,3 +4,4 @@ item.gkdebugger.name=Debugger
 
 tile.gkdebugger_block.name=Block of Debugger
 tile.connector.name=Connector
+tile.pipe.name=Pipe

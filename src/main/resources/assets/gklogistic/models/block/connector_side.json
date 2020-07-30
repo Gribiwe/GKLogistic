@@ -1,7 +1,7 @@
 {
   "textures": {
     "1": "gklogistic:blocks/connector",
-    "2": "gklogistic:blocks/connector_tube",
+    "2": "gklogistic:blocks/pipe_side",
     "particle": "gklogistic:blocks/connector"
   },
   "elements": [

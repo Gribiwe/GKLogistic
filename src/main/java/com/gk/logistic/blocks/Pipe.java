@@ -40,11 +40,11 @@ import java.util.List;
  *
  * @author Я
  */
-public class Connector extends Block implements Registrable {
+public class Pipe extends Block implements Registrable {
 
-    public static final String NAME = "connector";
+    public static final String NAME = "pipe";
 
-    public Connector() {
+    public Pipe() {
         super(Material.ROCK, MapColor.BLUE);
         setCreativeTab(GKLogistic.GKLOGISTIC_TAB);
         this.setDefaultState(
@@ -204,7 +204,7 @@ public class Connector extends Block implements Registrable {
         Block block = iblockstate.getBlock();
 
 //        boolean flag = blockfaceshape == BlockFaceShape.MIDDLE_POLE && (iblockstate.getMaterial() == this.blockMaterial || block instanceof Tube);
-        return !isExcepBlockForAttachWithPiston(block) && (block instanceof Connector || block instanceof Pipe || block instanceof BlockContainer);
+        return !isExcepBlockForAttachWithPiston(block) && (block instanceof Pipe || block instanceof Connector);
     }
 
     protected static boolean isExcepBlockForAttachWithPiston(Block p_194142_0_)
