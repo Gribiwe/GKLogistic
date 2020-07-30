@@ -1,8 +1,8 @@
 {
   "textures": {
-    "1": "gklogistic:blocks/gk_tube",
-    "2": "gklogistic:blocks/gk_tube_tube",
-    "particle": "gklogistic:blocks/gk_tube"
+    "1": "gklogistic:blocks/connector",
+    "2": "gklogistic:blocks/connector_tube",
+    "particle": "gklogistic:blocks/connector"
   },
   "elements": [
     {
