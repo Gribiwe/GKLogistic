@@ -1,6 +1,7 @@
 package com.gk.logistic.blocks;
 
 import com.gk.logistic.GKLogistic;
+import com.gk.logistic.blocks.connector.Connector;
 import com.gk.logistic.init.ModBlocks;
 import com.gk.logistic.init.ModItems;
 import com.gk.logistic.util.Registrable;

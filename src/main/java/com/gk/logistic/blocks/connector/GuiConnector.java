@@ -42,7 +42,7 @@ public class GuiConnector extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
-        String name = I18n.format(ModBlocks.TUBE.getUnlocalizedName() + ".name");
+        String name = I18n.format(ModBlocks.CONNECTOR.getUnlocalizedName() + ".name");
         this.fontRenderer.drawString(name, 8, 6, 000000);
         this.fontRenderer.drawString(this.playerInv.getDisplayName().getFormattedText(), 8, this.ySize - 92, 000000);
     }
@@ -67,9 +67,13 @@ public class GuiConnector extends GuiContainer {
         //If the button id is different, or you have mrs buttons, create another if block for that too!
         if(b.id == 1)
         {
-            te.getWorld()
-                    .getClosestPlayer(te.getPos().getX(), te.getPos().getY(), te.getPos().getZ(), 10, false)
-            .sendMessage(new TextComponentString("Hello world"));
+            b.playPressSound(mc.getSoundHandler());
+            b.mousePressed(mc, b.x, b.y);
+            sendChatMessage("Hello world");
+
+//            te.getWorld()
+//                    .getClosestPlayer(te.getPos().getX(), te.getPos().getY(), te.getPos().getZ(), 10, false)
+//            .sendMessage(new TextComponentString("Hello world"));
 
         }
     }
