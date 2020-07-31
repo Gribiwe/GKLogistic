@@ -3,6 +3,7 @@ package com.gk.logistic;
 import com.gk.logistic.proxy.CommonProxy;
 import com.gk.logistic.tabs.GKLogisticTab;
 import com.gk.logistic.util.Constants;
+import com.gk.logistic.util.handler.RegistryHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -35,5 +36,6 @@ public class GKLogistic {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
+        RegistryHandler.initRegistries();
     }
 }

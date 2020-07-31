@@ -26,6 +26,11 @@ public class GKDebugger extends BlockBase{
     }
 
     @Override
+    public int quantityDropped(Random random) {
+        return 7;
+    }
+
+    @Override
     public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
