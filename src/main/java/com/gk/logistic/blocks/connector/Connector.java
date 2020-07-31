@@ -1,8 +1,9 @@
-package com.gk.logistic.blocks;
+package com.gk.logistic.blocks.connector;
 
 import com.gk.logistic.GKLogistic;
 import com.gk.logistic.init.ModBlocks;
 import com.gk.logistic.init.ModItems;
+import com.gk.logistic.util.Constants;
 import com.gk.logistic.util.Registrable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -17,10 +18,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemLead;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.Mirror;
@@ -49,7 +52,7 @@ public class Connector extends Block implements Registrable {
         setCreativeTab(GKLogistic.GKLOGISTIC_TAB);
         this.setDefaultState(
                 this.blockState.getBaseState()
-                        .withProperty(NORTH, Boolean.valueOf(false))
+                        .withProperty(NORTH, Boolean.FALSE)
                         .withProperty(EAST, Boolean.valueOf(false))
                         .withProperty(SOUTH, Boolean.valueOf(false))
                         .withProperty(WEST, Boolean.valueOf(false))
@@ -230,15 +233,34 @@ public class Connector extends Block implements Registrable {
 
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        if (!worldIn.isRemote)
-        {
-            return ItemLead.attachToFence(playerIn, worldIn, pos);
+        ItemStack itemstack = playerIn.getHeldItem(hand);
+
+        if (itemstack.getItem() == Items.LEAD) {
+            if (!worldIn.isRemote)
+            {
+                return ItemLead.attachToFence(playerIn, worldIn, pos);
+            }
+            else
+            {
+                return  true;
+            }
+        } else {
+            playerIn.openGui(GKLogistic.instance, Constants.GUI_CONNECTOR, worldIn, pos.getX(), pos.getY(), pos.getZ());
+            return true;
         }
-        else
-        {
-            ItemStack itemstack = playerIn.getHeldItem(hand);
-            return itemstack.getItem() == Items.LEAD || itemstack.isEmpty();
-        }
+
+    }
+
+    @Override
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+        TileEntityConnector tileEntity = (TileEntityConnector) worldIn.getTileEntity(pos);
+        InventoryHelper.dropInventoryItems(worldIn, pos, tileEntity); //TODO возможно tileEntity надо заменить на state (по видосу)
+        super.breakBlock(worldIn, pos, state);
+    }
+
+    @Override
+    public BlockStateContainer getBlockState() {
+        return super.getBlockState();
     }
 
     public int getMetaFromState(IBlockState state)
@@ -314,5 +336,28 @@ public class Connector extends Block implements Registrable {
     @Override
     public void registerModels() {
         GKLogistic.commonProxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+    }
+
+    // Для контейнера
+
+
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(World world, IBlockState state) {
+        return new TileEntityConnector();
+    }
+
+    /*
+    @Nullable
+    @Override
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
+        return new TileEntityConnector();
+    }
+
+     */
+
+    @Override
+    public boolean hasTileEntity(IBlockState state) {
+        return true;
     }
 }

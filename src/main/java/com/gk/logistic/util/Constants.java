@@ -8,4 +8,6 @@ public class Constants {
 
     public static final String SERVER = "com.gk.logistic.proxy.CommonProxy";
     public static final String CLIENT = "com.gk.logistic.proxy.ClientProxy";
+
+    public static final int GUI_CONNECTOR = 2;
 }

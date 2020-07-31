@@ -1,7 +1,7 @@
 package com.gk.logistic.init;
 
 import com.gk.logistic.blocks.GKDebugger;
-import com.gk.logistic.blocks.Connector;
+import com.gk.logistic.blocks.connector.Connector;
 import net.minecraft.block.Block;
 
 import java.util.ArrayList;
