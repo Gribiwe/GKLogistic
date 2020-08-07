@@ -3,6 +3,7 @@ package com.gk.logistic.blocks.connector;
 import com.gk.logistic.GKLogistic;
 import com.gk.logistic.init.ModBlocks;
 import com.gk.logistic.util.Constants;
+import com.gk.logistic.util.network.Path;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -12,6 +13,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentString;
+
+import java.util.List;
 
 public class GuiConnector extends GuiContainer {
 
@@ -68,8 +71,9 @@ public class GuiConnector extends GuiContainer {
         if(b.id == 1)
         {
             b.playPressSound(mc.getSoundHandler());
-            b.mousePressed(mc, b.x, b.y);
-            sendChatMessage("Hello world");
+            TileEntityConnector tileEntityConnector =(TileEntityConnector) mc.world.getTileEntity(te.getPos());
+            Path path = tileEntityConnector.getNetwork().getClosestPathFor(te);
+            sendChatMessage(path.nodes.size() + " блоков до ближайшего коннектора");
 
 //            te.getWorld()
 //                    .getClosestPlayer(te.getPos().getX(), te.getPos().getY(), te.getPos().getZ(), 10, false)

@@ -19,6 +19,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -37,6 +38,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,6 +49,7 @@ import java.util.List;
 public class Connector extends Block implements Registrable {
 
     public static final String NAME = "connector";
+    private TileEntityConnector tileEntity;
 
     public Connector() {
         super(Material.ROCK, MapColor.BLUE);
@@ -66,6 +69,11 @@ public class Connector extends Block implements Registrable {
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(NAME));
     }
+
+    public Connector(Material material, MapColor color) {
+        super(material, color);
+    }
+
 
     public static final PropertyBool NORTH = PropertyBool.create("north");
     public static final PropertyBool EAST = PropertyBool.create("east");
@@ -102,6 +110,8 @@ public class Connector extends Block implements Registrable {
     public static final AxisAlignedBB EAST_AABB = new AxisAlignedBB(0.75D, 0.10D, 0.25D, 1.0D, 0.9D, 0.75D);
     public static final AxisAlignedBB UP_AABB = new AxisAlignedBB(0.0D, 0.10D, 0, 0, 0.9D, 0);
     public static final AxisAlignedBB DOWN_AABB = new AxisAlignedBB(0.0D, 0.10D, 0, 0, 0.9D, 0);
+
+
 
     public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean isActualState)
     {
@@ -244,8 +254,8 @@ public class Connector extends Block implements Registrable {
 
     @Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-        TileEntityConnector tileEntity = (TileEntityConnector) worldIn.getTileEntity(pos);
         InventoryHelper.dropInventoryItems(worldIn, pos, tileEntity); //TODO возможно tileEntity надо заменить на state (по видосу)
+        tileEntity.getNetwork().removeConnector(tileEntity);
         super.breakBlock(worldIn, pos, state);
     }
 
@@ -329,13 +339,21 @@ public class Connector extends Block implements Registrable {
         GKLogistic.commonProxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 
+
+
+
     // Для контейнера
 
 
     @Nullable
     @Override
-    public TileEntity createTileEntity(World world, IBlockState state) {
-        return new TileEntityConnector();
+    public TileEntity createTileEntity(World world, IBlockState state)
+    {
+        TileEntityConnector te = new TileEntityConnector();
+        te.isConnector = true;
+
+        this.tileEntity = te;
+        return te;
     }
 
     /*

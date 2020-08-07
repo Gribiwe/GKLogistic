@@ -2,6 +2,7 @@ package com.gk.logistic.blocks;
 
 import com.gk.logistic.GKLogistic;
 import com.gk.logistic.blocks.connector.Connector;
+import com.gk.logistic.blocks.connector.TileEntityConnector;
 import com.gk.logistic.init.ModBlocks;
 import com.gk.logistic.init.ModItems;
 import com.gk.logistic.util.Registrable;
@@ -22,6 +23,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemLead;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.Mirror;
@@ -41,7 +43,7 @@ import java.util.List;
  *
  * @author Я
  */
-public class Pipe extends Block implements Registrable {
+public class Pipe extends Connector implements Registrable {
 
     public static final String NAME = "pipe";
 
@@ -50,7 +52,7 @@ public class Pipe extends Block implements Registrable {
         setCreativeTab(GKLogistic.GKLOGISTIC_TAB);
         this.setDefaultState(
                 this.blockState.getBaseState()
-                        .withProperty(NORTH, Boolean.valueOf(false))
+                        .withProperty(NORTH, Boolean.FALSE)
                         .withProperty(EAST, Boolean.valueOf(false))
                         .withProperty(SOUTH, Boolean.valueOf(false))
                         .withProperty(WEST, Boolean.valueOf(false))
@@ -219,18 +221,6 @@ public class Pipe extends Block implements Registrable {
         return true;
     }
 
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
-        if (!worldIn.isRemote)
-        {
-            return ItemLead.attachToFence(playerIn, worldIn, pos);
-        }
-        else
-        {
-            ItemStack itemstack = playerIn.getHeldItem(hand);
-            return itemstack.getItem() == Items.LEAD || itemstack.isEmpty();
-        }
-    }
 
     public int getMetaFromState(IBlockState state)
     {
@@ -305,5 +295,14 @@ public class Pipe extends Block implements Registrable {
     @Override
     public void registerModels() {
         GKLogistic.commonProxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+    }
+
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(World world, IBlockState state)
+    {
+        TileEntityConnector te = new TileEntityConnector();
+        te.isConnector = false;
+        return te;
     }
 }
